@@ -86,4 +86,116 @@ public class EvolutionaryAlgorithmTest {
 
         assertEquals(mutation2, result);
     }
+
+    
+
+    @Test
+    @DisplayName("Lanza una excepción si la poblacion es nula")
+    public void optimize_PopulationNull_ThrowsException() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+
+        int[][] population = null;
+        
+        assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
+    }
+
+    @Test
+    @DisplayName("Lanza una excepción si la poblacion tiene tamaño 0")
+    public void optimize_PopulationNoSize_ThrowsException() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+
+        int[][] population = {};
+        
+        assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
+    }
+
+    @Test
+    @DisplayName("Lanza una excepción si el primer elemento es nulo")
+    public void optimize_PopulationFirstElementNull_ThrowsException() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+        
+        int[][] population = {
+            null,
+            {4,5,6},
+            {7,8,9}
+        }; 
+        
+        assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
+    }
+
+    @Test
+    @DisplayName("Lanza una excepción si el primer elemento tiene size menor o igual a 0")
+    public void optimize_PopulationFirstElementSize0_ThrowsException() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+        int[][] population = {
+            {},
+            {4,5,6},
+            {7,8,9}
+        };
+        
+        assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
+    }
+
+    @Test
+    @DisplayName("Con los parámetros adecuados funciona correctamente")
+    public void optimize_CorrectParameters_WorksProperly() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+        int[][] population = {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        };
+        
+        assertEquals(population.length, evolutionaryAlgorithm.optimize(population).length);
+    }
+    
+    @Test
+    @DisplayName("Devuelve un objeto CrossoverOperator")
+    public void getCrossoverOperator_returnObjectCrossoverOperator() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+
+        assertEquals(onePointCrossover, evolutionaryAlgorithm.getCrossoverOperator());
+    }
+
+    @Test
+    @DisplayName("Cambiamos un objeto CrossoverOperator")
+    public void setCrossoverOperator_WorksProperly() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        OnePointCrossover onePointCrossover2 = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+
+        evolutionaryAlgorithm.setCrossoverOperator(onePointCrossover2);
+
+        assertEquals(onePointCrossover2, evolutionaryAlgorithm.getCrossoverOperator());
+    }
+    
 }
+
+
