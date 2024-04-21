@@ -37,7 +37,7 @@ public class SwapMutation implements MutationOperator {
     @Override
     public int[] mutate(int[] individual) throws EvolutionaryAlgorithmException {
         int[] mutatedIndividual;
-        if (individual != null && individual.length > 0) {
+        if (individual != null && individual.length > 0) {  // a
             mutatedIndividual = individual.clone();
             int index1 = random.nextInt(individual.length);
             int index2 = random.nextInt(individual.length);
@@ -45,7 +45,7 @@ public class SwapMutation implements MutationOperator {
             int temp = mutatedIndividual[index1];
             mutatedIndividual[index1] = mutatedIndividual[index2];
             mutatedIndividual[index2] = temp;
-        } else {
+        } else {    // b
             throw new EvolutionaryAlgorithmException("No se puede realizar la mutación");
         }
         return mutatedIndividual;
