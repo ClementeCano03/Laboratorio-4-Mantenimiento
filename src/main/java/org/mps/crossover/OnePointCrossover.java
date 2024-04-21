@@ -34,20 +34,20 @@ public class OnePointCrossover implements CrossoverOperator {
     @Override
     public int[][] crossover(int[] parent1, int[] parent2) throws EvolutionaryAlgorithmException {
         int[][] offspring = null;
-        if (parent1 != null && parent2 != null && parent1.length > 0 && parent1.length == parent2.length) {
-            offspring = new int[2][parent1.length];
+        if (parent1 != null && parent2 != null && parent1.length > 0 && parent1.length == parent2.length) { // a
+            offspring = new int[2][parent1.length]; // b
             int crossoverPoint = random.nextInt(parent1.length - 1) + 1; // Punto de cruce aleatorio
             // Realizar el cruce en el punto seleccionado
-            for (int i = 0; i < crossoverPoint; i++) {
-                offspring[0][i] = parent1[i];
+            for (int i = 0; i < crossoverPoint; i++) { // d
+                offspring[0][i] = parent1[i]; // e
                 offspring[1][i] = parent2[i];
             }
-            for (int i = crossoverPoint; i < parent1.length; i++) {
-                offspring[0][i] = parent2[i];
+            for (int i = crossoverPoint; i < parent1.length; i++) { // f
+                offspring[0][i] = parent2[i]; // g
                 offspring[1][i] = parent1[i];
             }
         } else {
-            throw new EvolutionaryAlgorithmException("No se ha podido realizar el cruce");
+            throw new EvolutionaryAlgorithmException("No se ha podido realizar el cruce"); //c
         }
         return offspring;
     }
