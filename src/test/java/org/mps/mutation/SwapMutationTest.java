@@ -1,10 +1,10 @@
-package org.mps;
+package org.mps.mutation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
-import org.mps.mutation.SwapMutation;
+import org.mps.EvolutionaryAlgorithmException;
 
 public class SwapMutationTest {
     
