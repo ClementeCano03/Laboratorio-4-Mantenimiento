@@ -17,7 +17,7 @@ public class SwapMutationTest {
     }
 
     @Test
-    public void  mutate_WithLengthLessThanZero(){
+    public void  mutate_WithLengthZero(){
         SwapMutation mutation = new SwapMutation();
         int[] individual = {};
 
