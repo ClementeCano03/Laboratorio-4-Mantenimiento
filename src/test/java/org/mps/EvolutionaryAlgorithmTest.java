@@ -90,7 +90,7 @@ public class EvolutionaryAlgorithmTest {
     
 
     @Test
-    @DisplayName("Lanza una excepción si la poblacion es nula")
+    @DisplayName("Optimize lanza una excepción si la poblacion es nula")
     public void optimize_PopulationNull_ThrowsException() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
@@ -104,7 +104,7 @@ public class EvolutionaryAlgorithmTest {
     }
 
     @Test
-    @DisplayName("Lanza una excepción si la poblacion tiene tamaño 0")
+    @DisplayName("Optimize lanza una excepción si la poblacion tiene tamaño 0")
     public void optimize_PopulationNoSize_ThrowsException() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
@@ -118,7 +118,7 @@ public class EvolutionaryAlgorithmTest {
     }
 
     @Test
-    @DisplayName("Lanza una excepción si el primer elemento es nulo")
+    @DisplayName("Optimize lanza una excepción si el primer elemento es nulo")
     public void optimize_PopulationFirstElementNull_ThrowsException() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
@@ -136,7 +136,7 @@ public class EvolutionaryAlgorithmTest {
     }
 
     @Test
-    @DisplayName("Lanza una excepción si el primer elemento tiene size menor o igual a 0")
+    @DisplayName("Optimize lanza una excepción si el primer elemento tiene size menor o igual a 0")
     public void optimize_PopulationFirstElementSize0_ThrowsException() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
@@ -153,7 +153,7 @@ public class EvolutionaryAlgorithmTest {
     }
 
     @Test
-    @DisplayName("Con los parámetros adecuados funciona correctamente")
+    @DisplayName("Optimize con los parámetros adecuados funciona correctamente")
     public void optimize_CorrectParameters_WorksProperly() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
@@ -170,7 +170,7 @@ public class EvolutionaryAlgorithmTest {
     }
     
     @Test
-    @DisplayName("Devuelve un objeto CrossoverOperator")
+    @DisplayName("El método getCrossoverOperator devuelve un objeto CrossoverOperator correctamente")
     public void getCrossoverOperator_returnObjectCrossoverOperator() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
@@ -182,7 +182,7 @@ public class EvolutionaryAlgorithmTest {
     }
 
     @Test
-    @DisplayName("Cambiamos un objeto CrossoverOperator")
+    @DisplayName("El método setCrossoverOperator cambia un objeto CrossoverOperator correctamente")
     public void setCrossoverOperator_WorksProperly() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
