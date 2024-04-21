@@ -10,12 +10,14 @@ package org.mps.mutation;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mps.EvolutionaryAlgorithmException;
 
 public class SwapMutationTest {
     
     @Test
+    @DisplayName("Si le pasamos un array nulo, deberá lanzar la correspondiente excepción")
     public void  mutate_WithIndividualNull(){
         SwapMutation mutation = new SwapMutation();
         int[] individual = null;
@@ -24,6 +26,7 @@ public class SwapMutationTest {
     }
 
     @Test
+    @DisplayName("Si le pasamos un array vacío, deberá lanzar la correspondiente excepción")
     public void  mutate_WithLengthZero(){
         SwapMutation mutation = new SwapMutation();
         int[] individual = {};
@@ -32,6 +35,7 @@ public class SwapMutationTest {
     }
 
     @Test
+    @DisplayName("Si le pasamos un array no vacío de enteros, deberá devolver verdadero al comparar las longitudes")
     public void  mutate_WorksPropperly() throws EvolutionaryAlgorithmException{
         SwapMutation mutation = new SwapMutation();
         int[] individual = {1,2,3,4,5};
