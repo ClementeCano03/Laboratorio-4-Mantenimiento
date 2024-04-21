@@ -58,8 +58,10 @@ public class EvolutionaryAlgorithm {
             // Creamos una nueva población para los descendientes
             int[][] offspringPopulation = new int[population.length][population.length];
 
+            // ERROR CORREGIDO: Si la longitud de population es impar, se produce una excepción ya que intentará acceder a una posición que está fuera de rango
+            int limite = population.length % 2 == 0 ? population.length : population.length - 1;
             // Aplicamos operadores de selección y cruce para generar descendientes
-            for (int i = 0; i < population.length; i += 2) {
+            for (int i = 0; i < limite; i += 2) {
                 // Seleccionamos dos individuos de la población actual
                 int[] parent1 = selectionOperator.select(population[i]);
                 int[] parent2 = selectionOperator.select(population[i + 1]);
