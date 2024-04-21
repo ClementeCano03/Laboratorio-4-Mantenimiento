@@ -1,3 +1,10 @@
+
+/*
+ * @author José Antonio Casado Molina
+ * @author Manuel Fuentes Vida
+ * @author Clemente Cano Mengíbar
+ */
+
 package org.mps;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -194,6 +201,33 @@ public class EvolutionaryAlgorithmTest {
         evolutionaryAlgorithm.setCrossoverOperator(onePointCrossover2);
 
         assertEquals(onePointCrossover2, evolutionaryAlgorithm.getCrossoverOperator());
+    }
+
+    @Test
+    @DisplayName("Devuelve un objeto SelectionOperator")
+    public void getSelectionOperator_WorksProperly() throws EvolutionaryAlgorithmException{
+        SelectionOperator selection = new TournamentSelection(10);
+        MutationOperator mutation = new SwapMutation();
+        CrossoverOperator crossover = new OnePointCrossover();
+        EvolutionaryAlgorithm evolutionary = new EvolutionaryAlgorithm(selection, mutation, crossover);
+
+        SelectionOperator result = evolutionary.getSelectionOperator();
+
+        assertEquals(selection, result);
+    }
+
+    @Test
+    @DisplayName("Cambiamos un objeto SelectionOperator")
+    public void setSelectionOperator_WorksProperly() throws EvolutionaryAlgorithmException{
+        SelectionOperator tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+
+        evolutionaryAlgorithm.setSelectionOperator(tournamentSelection);
+
+        assertEquals(tournamentSelection, evolutionaryAlgorithm.getSelectionOperator());
     }
     
 }
