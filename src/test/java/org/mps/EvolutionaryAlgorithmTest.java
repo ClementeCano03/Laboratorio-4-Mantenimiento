@@ -81,7 +81,7 @@ public class EvolutionaryAlgorithmTest {
 
     @Test
     @DisplayName("El método setMutationOperator debe cambiar el parámetro mutation correctamente")
-    public void setMutationOperator_PassingANewMutation_ReturnMutation() throws EvolutionaryAlgorithmException{
+    public void setMutationOperator_PassingANewMutation_WorksCorrectly() throws EvolutionaryAlgorithmException{
         SelectionOperator selection = new TournamentSelection(10);
         MutationOperator mutation = new SwapMutation();
         CrossoverOperator crossover = new OnePointCrossover();

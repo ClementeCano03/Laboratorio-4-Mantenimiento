@@ -18,7 +18,7 @@ public class SwapMutationTest {
     
     @Test
     @DisplayName("Si le pasamos un array nulo, deberá lanzar la correspondiente excepción")
-    public void  mutate_WithIndividualNull(){
+    public void  mutate_WithIndividualNull_ThrowsException(){
         SwapMutation mutation = new SwapMutation();
         int[] individual = null;
 
@@ -27,7 +27,7 @@ public class SwapMutationTest {
 
     @Test
     @DisplayName("Si le pasamos un array vacío, deberá lanzar la correspondiente excepción")
-    public void  mutate_WithLengthZero(){
+    public void  mutate_WithLengthZero_ThrowsException(){
         SwapMutation mutation = new SwapMutation();
         int[] individual = {};
 
@@ -36,7 +36,7 @@ public class SwapMutationTest {
 
     @Test
     @DisplayName("Si le pasamos un array no vacío de enteros, deberá devolver verdadero al comparar las longitudes")
-    public void  mutate_WorksPropperly() throws EvolutionaryAlgorithmException{
+    public void  mutate_WithCorrectParameter_WorksPropperly() throws EvolutionaryAlgorithmException{
         SwapMutation mutation = new SwapMutation();
         int[] individual = {1,2,3,4,5};
 

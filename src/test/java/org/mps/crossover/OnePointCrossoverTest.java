@@ -8,6 +8,7 @@
 package org.mps.crossover;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -16,6 +17,14 @@ import org.mps.EvolutionaryAlgorithmException;
 
 public class OnePointCrossoverTest {
     
+    @Test
+    @DisplayName("El constructor funciona correctamente")
+    public void onePointCrossover_CallingTheConstructor_WorksCorrectly(){
+        CrossoverOperator crossover = new OnePointCrossover();
+
+        assertNotNull(crossover);
+    }
+
     @Test
     @DisplayName("Si el primer padre que se le pasa a crossover es null, lanza una excepción")
     public void crossover_WithParent1Null_ThrowsException() {
