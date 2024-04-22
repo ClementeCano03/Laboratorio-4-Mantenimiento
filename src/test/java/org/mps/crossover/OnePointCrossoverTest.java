@@ -58,7 +58,7 @@ public class OnePointCrossoverTest {
     }
 
     @Test
-    @DisplayName("Si todos los parámetros son correctos, crossover funciona bien")
+    @DisplayName("Si todos los parámetros son correctos, crossover funciona correctamente")
     public void crossover_BothParentsCorrect_returnOffspring() throws EvolutionaryAlgorithmException {
         OnePointCrossover crossover = new OnePointCrossover();
         int[] parent1 = {1,2,3,4,5};
