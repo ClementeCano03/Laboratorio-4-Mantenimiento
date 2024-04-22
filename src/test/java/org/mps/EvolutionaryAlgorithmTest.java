@@ -191,7 +191,7 @@ public class EvolutionaryAlgorithmTest {
 
     @Test
     @DisplayName("El método setSelectionOperator cambia un objeto SelectionOperator correctamente")
-    public void setSelectionOperator_WorksProperly_returnObjectSelectionOperator() throws EvolutionaryAlgorithmException{
+    public void setSelectionOperator_PassingANewSelection_WorksProperly() throws EvolutionaryAlgorithmException{
         SelectionOperator tournamentSelection = new TournamentSelection(10);
         SelectionOperator tournamentSelection2 = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
@@ -206,7 +206,7 @@ public class EvolutionaryAlgorithmTest {
     
     @Test
     @DisplayName("El método getCrossoverOperator devuelve un objeto CrossoverOperator correctamente")
-    public void getCrossoverOperator_worksProperly_returnObjectCrossoverOperator() throws EvolutionaryAlgorithmException{
+    public void getCrossoverOperator_WorksProperly_ReturnObjectCrossoverOperator() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
         SwapMutation swapMutation = new SwapMutation();
@@ -218,7 +218,7 @@ public class EvolutionaryAlgorithmTest {
 
     @Test
     @DisplayName("El método setCrossoverOperator cambia un objeto CrossoverOperator correctamente")
-    public void setCrossoverOperator_WorksProperly_ReturnObjectCrossoverOperator() throws EvolutionaryAlgorithmException{
+    public void setCrossoverOperator_PassingNewCrossover_WorksProperly() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
         OnePointCrossover onePointCrossover2 = new OnePointCrossover();
