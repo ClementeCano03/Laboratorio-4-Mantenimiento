@@ -8,6 +8,7 @@
 package org.mps.selection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -18,9 +19,17 @@ public class TournamentSelectionTest{
 
     @Test
     @DisplayName("Si le pasamos como parámetro de entrada un número menor que 0, lanza una excepción")
-    public void constructor_WithNonCorrectParam_ThrowsException() throws EvolutionaryAlgorithmException{
+    public void constructor_WithSizeLessThan0_ThrowsException() throws EvolutionaryAlgorithmException{
         assertThrows(EvolutionaryAlgorithmException.class, () -> new TournamentSelection(0));
 
+    }
+
+    @Test
+    @DisplayName("El constructor pasándole como parámetro un entero mayor que 0, funciona correctamente")
+    public void constructor_WithSizeGreaterThan0_WorksCorrectly() throws EvolutionaryAlgorithmException{
+        TournamentSelection selection = new TournamentSelection(5);
+
+        assertNotNull(selection);
     }
     
     @Test
@@ -43,7 +52,7 @@ public class TournamentSelectionTest{
 
     @Test
     @DisplayName("Introducimos datos correctos para comprobar que funciona correctamente")
-    public void select_CorrectParam_WorksProperly() throws EvolutionaryAlgorithmException{
+    public void select_CorrectParameter_WorksProperly() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
 
         int[] poblation = {1,2,3,4,5,6,7};
