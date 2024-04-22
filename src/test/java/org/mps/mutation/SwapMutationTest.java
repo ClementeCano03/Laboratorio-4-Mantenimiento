@@ -8,6 +8,7 @@
 package org.mps.mutation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +16,13 @@ import org.junit.jupiter.api.Test;
 import org.mps.EvolutionaryAlgorithmException;
 
 public class SwapMutationTest {
-    
+    @Test
+    @DisplayName("Comprobamos que el constructor no devulve un nulo")
+    public void swapMutation_Constructor_NotNull() {
+        SwapMutation swapMutation = new SwapMutation();
+        assertNotNull(swapMutation);
+    }
+
     @Test
     @DisplayName("Si le pasamos un array nulo, deberá lanzar la correspondiente excepción")
     public void  mutate_WithIndividualNull(){
