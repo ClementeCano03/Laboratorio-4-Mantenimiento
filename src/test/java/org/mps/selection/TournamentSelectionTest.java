@@ -51,14 +51,25 @@ public class TournamentSelectionTest{
     }
 
     @Test
+    @DisplayName("Introducimos el tamaño del torneo distinto al de la población")
+    public void select_tournamentSizeDifferentPopulationLength_ThrowsException() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+
+        int[] poblation = {1,2,3,4,5,6,7,8};
+        
+        
+        assertThrows(EvolutionaryAlgorithmException.class, () -> tournamentSelection.select(poblation)) ;
+    }
+
+    @Test
     @DisplayName("Introducimos datos correctos para comprobar que funciona correctamente")
     public void select_CorrectParameter_WorksProperly() throws EvolutionaryAlgorithmException{
         TournamentSelection tournamentSelection = new TournamentSelection(10);
 
-        int[] poblation = {1,2,3,4,5,6,7};
+        int[] poblation = {1,2,3,4,5,6,7,8,9,10};
         int[] selected = tournamentSelection.select(poblation);
         
-        assertEquals(7, selected.length);
+        assertEquals(10, selected.length);
     }
 
     
