@@ -94,7 +94,22 @@ public class EvolutionaryAlgorithmTest {
         assertEquals(mutation2, result);
     }
 
-    
+    @Test
+    @DisplayName("Optimize lanza una excepción si la poblacion que se le pasa tiene longitud impar (Error del código)")
+    public void optimize_PopulationLengthIsOdd_ThrowsException() throws EvolutionaryAlgorithmException{
+        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        OnePointCrossover onePointCrossover = new OnePointCrossover();
+        SwapMutation swapMutation = new SwapMutation();
+
+        EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(tournamentSelection, swapMutation, onePointCrossover);
+
+        int[][] population = {
+            {1,2,3},
+            {4,5,6},
+            {7,8,9}
+        };
+        assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
+    }
 
     @Test
     @DisplayName("Optimize lanza una excepción si la poblacion es nula")
@@ -136,7 +151,8 @@ public class EvolutionaryAlgorithmTest {
         int[][] population = {
             null,
             {4,5,6},
-            {7,8,9}
+            {7,8,9},
+            {3,2,1}
         }; 
         
         assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
@@ -153,7 +169,8 @@ public class EvolutionaryAlgorithmTest {
         int[][] population = {
             {},
             {4,5,6},
-            {7,8,9}
+            {7,8,9},
+            {3,2,1}
         };
         
         assertThrows(EvolutionaryAlgorithmException.class, () -> evolutionaryAlgorithm.optimize(population));
@@ -170,7 +187,8 @@ public class EvolutionaryAlgorithmTest {
         int[][] population = {
             {1,2,3},
             {4,5,6},
-            {7,8,9}
+            {7,8,9},
+            {3,2,1}
         };
         
         assertEquals(population.length, evolutionaryAlgorithm.optimize(population).length);
