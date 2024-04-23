@@ -97,7 +97,7 @@ public class EvolutionaryAlgorithmTest {
     @Test
     @DisplayName("Optimize lanza una excepción si la poblacion que se le pasa tiene longitud impar (Error del código)")
     public void optimize_PopulationLengthIsOdd_ThrowsException() throws EvolutionaryAlgorithmException{
-        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        TournamentSelection tournamentSelection = new TournamentSelection(3);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
         SwapMutation swapMutation = new SwapMutation();
 
@@ -142,7 +142,7 @@ public class EvolutionaryAlgorithmTest {
     @Test
     @DisplayName("Optimize lanza una excepción si el primer elemento es nulo")
     public void optimize_PopulationFirstElementNull_ThrowsException() throws EvolutionaryAlgorithmException{
-        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        TournamentSelection tournamentSelection = new TournamentSelection(3);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
         SwapMutation swapMutation = new SwapMutation();
 
@@ -161,7 +161,7 @@ public class EvolutionaryAlgorithmTest {
     @Test
     @DisplayName("Optimize lanza una excepción si el primer elemento tiene size menor o igual a 0")
     public void optimize_PopulationFirstElementSize0_ThrowsException() throws EvolutionaryAlgorithmException{
-        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        TournamentSelection tournamentSelection = new TournamentSelection(3);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
         SwapMutation swapMutation = new SwapMutation();
 
@@ -179,7 +179,7 @@ public class EvolutionaryAlgorithmTest {
     @Test
     @DisplayName("Optimize con los parámetros adecuados funciona correctamente")
     public void optimize_CorrectParameters_WorksProperly() throws EvolutionaryAlgorithmException{
-        TournamentSelection tournamentSelection = new TournamentSelection(10);
+        TournamentSelection tournamentSelection = new TournamentSelection(3);
         OnePointCrossover onePointCrossover = new OnePointCrossover();
         SwapMutation swapMutation = new SwapMutation();
 
